@@ -27,7 +27,6 @@ startServer(server);
 async function checkCPU() {
   try {
     const stats = await pidusage(process.pid);
-    console.log("CPU usage:", stats.cpu);
 
     // Check if CPU usage exceeds threshold
     if (stats.cpu > 70) {
