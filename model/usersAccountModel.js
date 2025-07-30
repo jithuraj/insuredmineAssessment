@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-// Users Account Schema
+// Users Account schema
 const usersAccountSchema = new Schema(
   {
     account_name: {
@@ -13,5 +13,6 @@ const usersAccountSchema = new Schema(
   }
 );
 
+// Users Account model
 const UsersAccount = model("UsersAccount", usersAccountSchema);
 export default UsersAccount;

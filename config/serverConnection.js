@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+// Server connection
 const startServer = (app) => {
   try {
     app.listen(process.env.PORT, process.env.HOST, () => {

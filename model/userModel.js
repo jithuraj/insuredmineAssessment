@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+// User schema
 const userSchema = new Schema(
   {
     first_name: {
@@ -39,5 +40,6 @@ const userSchema = new Schema(
   }
 );
 
+// User model
 const User = model("User", userSchema);
 export default User;

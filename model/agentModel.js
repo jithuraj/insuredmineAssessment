@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+// Agent schema
 const agentSchema = new Schema(
   {
     agent: {
@@ -12,5 +13,6 @@ const agentSchema = new Schema(
   }
 );
 
+// Agent model
 const Agent = model("Agent", agentSchema);
 export default Agent;

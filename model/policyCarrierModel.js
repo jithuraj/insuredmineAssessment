@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+// Policy Carrier schema
 const policyCarrierSchema = new Schema(
   {
     company_name: {
@@ -12,5 +13,6 @@ const policyCarrierSchema = new Schema(
   }
 );
 
+// Policy Carrier model
 const PolicyCarrier = model("PolicyCarrier", policyCarrierSchema);
 export default PolicyCarrier;

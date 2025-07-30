@@ -1,5 +1,6 @@
 import multer, { diskStorage } from "multer";
 
+// Multer storage configuration
 const Storage = diskStorage({
   destination: (req, file, callback) => {
     callback(null, "./uploads");
@@ -9,4 +10,5 @@ const Storage = diskStorage({
   },
 });
 
+// Multer middleware
 export const uploads = multer({ storage: Storage }).single("file");

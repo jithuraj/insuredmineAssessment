@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+// Message schema
 const messageSchema = new Schema(
   {
     message: {
@@ -16,5 +17,6 @@ const messageSchema = new Schema(
   }
 );
 
+// Message model
 const Message = model("Message", messageSchema);
 export default Message;

@@ -2,6 +2,7 @@ import { isMainThread, parentPort } from "worker_threads";
 import XLSX from "xlsx";
 import fs from "fs";
 
+// Function to parse XLSX file
 function parseXLSX(filePath) {
   const workbook = XLSX.readFile(filePath);
   const sheetName = workbook.SheetNames[0];
@@ -9,6 +10,7 @@ function parseXLSX(filePath) {
   return XLSX.utils.sheet_to_json(sheet);
 }
 
+// Function to parse CSV file
 function parseCSV(filePath) {
   const data = fs.readFileSync(filePath, "utf-8");
   const lines = data.trim().split("\n");
@@ -22,6 +24,7 @@ function parseCSV(filePath) {
   });
 }
 
+// Worker thread
 if (!isMainThread) {
   parentPort.on("message", async (data) => {
     const parsed = data.endsWith(".xlsx") ? parseXLSX(data) : parseCSV(data);

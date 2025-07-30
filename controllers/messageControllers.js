@@ -4,6 +4,7 @@ import moment from "moment";
 const messageHelper = new messageHelpers();
 
 class MessageController {
+  // Add message
   async addMessage(req, res) {
     const { message, day, time } = req.body;
     if (!message || !day || !time) {

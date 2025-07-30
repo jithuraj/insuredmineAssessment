@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 
 class UserController {
+  // Upload data
   async uploadData(req, res) {
     const fileName = fileURLToPath(import.meta.url);
     const dirName = dirname(fileName);
@@ -57,17 +58,22 @@ class UserController {
     }
   }
 
+  // Get user
   async getUser(req, res) {
     const { username } = req.query;
     const response = await userHelpers.getUserName(username);
     if (response) res.status(200).json(response);
   }
+
+  // Get policy info
   async getPolicyInfo(req, res) {
     const { username } = req.query;
     const response = await userHelpers.getUserPolicy(username);
     if (response) res.status(200).json(response);
   }
-  async getAllPoliciesInfo(req, res) {
+
+  // Get all policies info
+    async getAllPoliciesInfo(req, res) {
     const response = await userHelpers.getUserPolicies();
     if (response) res.status(200).json(response);
   }

@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+// Policy Category schema
 const policyCategorySchema = new Schema(
   {
     category_name: {
@@ -12,5 +13,6 @@ const policyCategorySchema = new Schema(
   }
 );
 
+// Policy Category model
 const PolicyCategory = model("PolicyCategory", policyCategorySchema);
 export default PolicyCategory;

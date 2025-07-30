@@ -2,6 +2,7 @@ import Message from "../model/messageModel.js";
 import schedule from "node-schedule";
 
 class MessageHelpers {
+  // Add message
   async addMessage(message, scheduledAt) {
     try {
       const job = schedule.scheduleJob(scheduledAt, async () => {

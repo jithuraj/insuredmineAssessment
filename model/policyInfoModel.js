@@ -5,6 +5,7 @@ import PolicyCarrier from "./policyCarrierModel.js";
 import PolicyCategory from "./policyCategoryModel.js";
 import UsersAccount from "./usersAccountModel.js";
 
+// Policy Info schema
 const policyInfoSchema = new Schema(
   {
     policy_number: {
@@ -64,5 +65,6 @@ const policyInfoSchema = new Schema(
   }
 );
 
+// Policy Info model
 const PolicyInfo = model("policyinfo", policyInfoSchema);
 export default PolicyInfo;

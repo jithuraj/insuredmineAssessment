@@ -6,6 +6,7 @@ import PolicyInfo from "../model/policyInfoModel.js";
 import UsersAccount from "../model/usersAccountModel.js";
 
 class UserHelpers {
+  // Add user
   async addUser(data) {
     const response = await User.findOneAndUpdate(
       { first_name: data?.first_name },
@@ -27,6 +28,7 @@ class UserHelpers {
     if (response) return response._id;
   }
 
+  // Add agent
   async addAgent(agent) {
     const response = await Agent.findOneAndUpdate(
       { agent },
@@ -36,6 +38,7 @@ class UserHelpers {
     if (response) return response._id;
   }
 
+  // Add carrier
   async addCarrier(company_name) {
     const response = await PolicyCarrier.findOneAndUpdate(
       { company_name },
@@ -45,6 +48,7 @@ class UserHelpers {
     if (response) return response._id;
   }
 
+  // Add category
   async addCategory(category_name) {
     const response = await PolicyCategory.findOneAndUpdate(
       { category_name },
@@ -54,6 +58,7 @@ class UserHelpers {
     if (response) return response._id;
   }
 
+  // Add account name
   async addAccountName(account_name) {
     const response = await UsersAccount.findOneAndUpdate(
       { account_name },
@@ -63,6 +68,7 @@ class UserHelpers {
     if (response) return response._id;
   }
 
+  // Add policy
   async addPolicy(data, ids) {
     const response = await PolicyInfo.findOneAndUpdate(
       { policy_number: data?.policy_number },
@@ -87,6 +93,7 @@ class UserHelpers {
     if (response) return response._id;
   }
 
+  // Get user name
   async getUserName(userName) {
     const regex = new RegExp(userName, "i");
     return await UsersAccount.find(
@@ -95,6 +102,7 @@ class UserHelpers {
     );
   }
 
+  // Get user policy
   async getUserPolicy(userName) {
     return await UsersAccount.aggregate([
       {

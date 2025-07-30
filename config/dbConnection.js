@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// MongoDB connection
 const connectMongoDB = () => {
   try {
     mongoose.connect(process.env.MONGO_URL).then(() => {

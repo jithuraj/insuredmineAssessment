@@ -6,10 +6,13 @@ import connectMongoDB from "./config/dbConnection.js";
 import router from "./routes/userRouter.js";
 import pidusage from "pidusage";
 
+// App
 const app = express();
 
+// Server
 const server = http.createServer(app);
 
+// CORS
 const enableCors = {
   origin: "*",
   exposeHeaders: ["Cross-Origin-Opener-Policy", "Cross-Origin-Resource-Policy"],
@@ -19,11 +22,16 @@ app.use(cors(enableCors));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Routes
 app.use(router);
 
+// MongoDB connection
 connectMongoDB();
 
+// Server connection
 startServer(server);
+
+// Function to check CPU usage
 async function checkCPU() {
   try {
     const stats = await pidusage(process.pid);
@@ -38,10 +46,12 @@ async function checkCPU() {
   }
 }
 
+// Function to restart server
 function restartServer() {
   server.close(() => {
     startServer(server);
   });
 }
 
+// Check CPU usage every 5 seconds
 setInterval(checkCPU, 5000);
