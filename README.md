@@ -29,6 +29,7 @@ Create a `.env` file in the root directory with the following:
 
 ```env
 PORT=3000
+HOST=0.0.0.0
 MONGO_URL=your_mongodb_connection_string
 ```
 
